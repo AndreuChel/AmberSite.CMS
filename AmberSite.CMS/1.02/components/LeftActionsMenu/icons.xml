@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<icons>
+	<icon type="add" src="i/icon-create.gif"/>
+	<icon type="ext_exec" src="i/icon-posting.gif"/>
+    <icon type="node_edit" src="i/icon-edit.gif"/>
+	<icon type="node_block" src="i/icon-hide.gif"/>
+	<icon type="node_unblock" src="i/icon-show.gif"/>
+	<icon type="node_moveup" src="i/icon-moveup.gif"/>
+	<icon type="node_movedown" src="i/icon-movedown.gif"/>
+	<icon type="node_delete" src="i/icon-delete.gif"/>
+	<icon type="save_card" src="i/icon-save.gif"/>
+	<icon type="quit_save_card" src="i/icon-saveexit.gif"/>
+	<icon type="quit_card" src="i/icon-exit.gif"/>
+</icons>
+

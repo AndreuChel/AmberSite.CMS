@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta content="noindex, nofollow" name="robots">
+		<script type="text/javascript">
+
+						var oEditor = window.parent.InnerDialogLoaded() ;
+						var FCK			= oEditor.FCK ;
+						
+						window.onload = function ()	{
+						 				 window.parent.SetOkButton( true ) ;
+						}
+
+						function Ok_upload(_filepath, _width, _height, _alt){
+											 var oImage = FCK.CreateElement( 'IMG' );
+											 oImage.src = _filepath ;
+											 if (_alt == "") _alt="Image";
+											 oImage.setAttribute("alt", _alt );
+											 var _width1 = document.getElementById("wimg").value;
+											 var _heigth1 = document.getElementById("himg").value;
+											 if (_width1 != "")
+								 		   		oImage.setAttribute("width", _width1 );
+											 if (_heigth1 != "")
+								 		   		oImage.setAttribute("heigth", _heigth1 );
+                                             if (document.getElementById("pimg").checked)
+								 		   		oImage.setAttribute("preview", "_VIEW_" );
+						}
+						function close_win() {
+                 		 window.parent.close();
+						}
+						function Ok()
+						{
+						   document.getElementById("image_form").submit();
+ 	 					}
+		</script>
+	</head>
+	<body scroll="no" style="OVERFLOW: hidden">
+	<form target="ifr" id="image_form" name="image_form" enctype="multipart/form-data" action="upload.php" method="POST">
+				<div id="content">
+				<table><tr><td>
+											 <div class="p">
+			Path:<br/>
+			<input id="i_file" size="40" type="file" class="file" name="userfile" value="Îבחמנ..."/>
+		</div>
+		<div class="p" id="offdiv1">
+			<div>Alt:<br/><input id="aimg" type="text" name="alt_text" width="260px"/></div>
+			<div>Width<br/><input id="wimg" type="text" name="width" width="60px"/></div>
+			<div>Heigth<br/><input id="himg" type="text" name="height" width="60px"/></div>
+			<div><input id="pimg" type="checkbox" name="preview" width="60px" checked/>Preview</div>			
+		</div>
+		</td></tr></table>
+	</div>
+</form>
+<iframe id="ifr" name="ifr" border="0" frameborder="0" style="display:none; width:100%; height:100%;"></iframe>
+</body>
+</html>

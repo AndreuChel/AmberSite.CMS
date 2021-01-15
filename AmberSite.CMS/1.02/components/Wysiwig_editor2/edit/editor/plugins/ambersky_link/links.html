@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta content="noindex, nofollow" name="robots">
+		<script type="text/javascript" src="../../dialog/common/fck_dialog_common.js"></script>
+                <script language="JavaScript" type="text/javascript" src="ld_Events.js"></script>
+                <link rel="stylesheet" type="text/css" href="l_d.css" />
+
+		<script type="text/javascript">
+                        var oEditor = window.parent.InnerDialogLoaded() ;
+	                var FCK = oEditor.FCK ;
+	                var mainAppCMS = FCK.EditorWindow.top.MainAppCMS;
+                        var dc = mainAppCMS.GetLinkToComponent("DataCard");
+                        var sp = dc.StartPath;
+                        var WorkParams = "method=get_children#path="+sp+"#start_position=0#choose_path="+sp;
+                        
+                        var wyswig_object = mainAppCMS.GetLinkToComponent("WisiwygEditorDialog");
+			window.onload = function () {
+                            window.parent.SetOkButton( true ) ;
+                            document.onmousedown=function(){return false};
+                            var res_content = wyswig_object.get_linkdialog_content(WorkParams);
+                            if (!res_content) return;
+                            document.getElementById("linkContent").innerHTML = res_content;
+                            ldEventsLoad();
+			}
+			function close_win() {
+                            //window.parent.close();
+			}
+			function Ok(){
+                             var res_path = wyswig_object.get_selected_link();
+                             if (!res_path) {
+                                window.parent.close();
+                                return;
+                             };
+                             res_path = "node://"+res_path;
+
+                             //**********************
+                             var oLink = FCK.Selection.MoveToAncestorNode( 'A' ) ;
+                             if ( !oLink )
+		                oLink = oEditor.FCK.CreateLink( res_path ) ;
+	                     if ( oLink )
+		                sInnerHtml = oLink.innerHTML ;
+                             else{
+		                sInnerHtml = wyswig_object.get_selected_link_title();
+                                oLink = oEditor.FCK.CreateElement( 'a' ) ;
+                             };
+                 	     oEditor.FCKUndo.SaveUndoStep() ;
+	                     oLink.href = res_path ;
+                             SetAttribute( oLink, '_fcksavedurl', res_path ) ;
+	                     oLink.innerHTML = sInnerHtml ;
+	                     oEditor.FCKSelection.SelectNode(oLink);
+	                     return true ;
+                             //**********************
+ 			}
+                        function callEvent(act) {
+                            var res_content = wyswig_object.get_linkdialog_content(act);
+                            if (!res_content) return;
+                            document.getElementById("linkContent").innerHTML = res_content;
+                            ldEventsLoad();
+                        };
+
+		</script>
+	</head>
+        <body scroll="no" style="OVERFLOW: hidden" onselectstart = "return false;">
+	      <div id="linkContent">&#160;</div>
+        </body>
+</html>

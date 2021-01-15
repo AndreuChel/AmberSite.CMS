@@ -1,0 +1,12 @@
+	body {padding:0; margin:0; font-family:Tahoma,Verdana; font-size:11px; background:url("i/top-bg.gif") repeat-x; color: #5C7A9A;}
+	table, table td {margin:0; padding:0; border:0px; border-collapse:collapse; vertical-align:top;}
+	table {width:100%; height:67px;}
+
+	.top .logo {width:250px; background:url('i/top-logo.gif') no-repeat top left;padding:18px 0 0 70px;}
+	.top .user {width:1%; background:url('i/icon-user.gif') no-repeat; background-position:10px center; vertical-align:middle; padding-left:30px; white-space:nowrap;}
+	.top .logout {width:130px; background:url('i/icon-logout.gif') no-repeat; background-position:10px center; vertical-align:middle; padding-left:30px;}
+	.top .path {width:400px; background-position:10px center; vertical-align:middle; padding-left:10px;}
+
+
+	a {color: #5C7A9A; text-decoration:none;}
+	img {border: none;}

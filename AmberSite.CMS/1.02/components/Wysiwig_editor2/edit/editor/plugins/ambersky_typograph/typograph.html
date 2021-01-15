@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta content="noindex, nofollow" name="robots">
+        <script language="JavaScript" type="text/javascript" src="clearTags.js"></script>		
+		<script type="text/javascript">
+
+						var oEditor = window.parent.InnerDialogLoaded() ;
+						var FCK			= oEditor.FCK ;
+						
+						window.onload = function ()	{
+						 				 window.parent.SetOkButton( true ) ;
+						}
+						
+						function res_typograth(res) {
+							document.getElementById("src_new").innerHTML = res;
+						};
+
+						function get_content () {
+							//var txt = FCK.GetXHTML(true);
+							var scaner = new ClaeanHTMLClass(FCK.EditorDocument.body);
+							var res = scaner.ScanTags(FCK.EditorDocument.body);
+							return res;
+						};
+						function Ok(){
+							FCK.EditorDocument.body.innerHTML = document.getElementById("src_new").innerHTML;
+							return true ;
+						}
+						function close_win() {
+							window.parent.close();
+						}
+						function init() {
+							var txt = get_content();
+							document.getElementById("src_old").innerHTML = txt;
+							document.getElementById("src_text").value = txt;
+						};
+		</script>
+	</head>
+	<body scroll="no" style="OVERFLOW: hidden">
+		<div>Source Text:</div>
+		<div id="src_old" style="width:100%; height:180px; background: #FFFFFF; border: 1px solid #B6B6B6; margin:0 0 10px 0; overflow:auto;"></div>
+		<form target="ifr" id="typograph_form" name="typograph_form" enctype="multipart/form-data" action="typograph.php" method="POST">
+			<input type="hidden" name="src_text" id="src_text"/>
+			<input type="submit" value="Typography"/>
+		</form>
+		<div>Prepared Text:</div>		
+		<div id="src_new" style="width:100%; height:180px; background: #FFFFFF; border: 1px solid #B6B6B6; margin:0 0 10px 0; overflow:auto;"></div>
+		<iframe id="ifr" name="ifr" border="0" frameborder="0" style="display:none; width:100px; height:100px"></iframe>
+		<script>init();</script>
+	</body>
+</html>

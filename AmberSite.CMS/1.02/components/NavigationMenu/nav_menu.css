@@ -1,0 +1,42 @@
+html, body {padding:0; margin:0; height:100%; width:100%;font-family:Tahoma,Verdana; font-size:12px;color:#303030;}
+form {padding:0; margin:0;}
+
+
+div#content {padding:20px; background-color:#FFFFFF;}
+div#content a {color: #5C7A9A; text-decoration:underline;}
+
+h1 {
+	margin:5px 5px 0 10px;
+	font-size: 18px;
+}
+
+div#crumbs {
+	padding: 0 0 0 18px; 
+	margin:0 0 0 -7px;
+	background: url("img/icon-arrow.gif") no-repeat left top;
+	color: #5C7A9A;
+}
+
+table#nodes {width:100%; border:0px; border-collapse:collapse;}
+
+table#nodes td {vertical-align:top; border: 0px solid black; padding:5px; margin:0px;cursor:pointer;}
+table#nodes .c {border-left:2px solid #FFFFFF; cursor:default;}
+table#nodes th.c {cursor:pointer;}
+table#nodes th.c img {float:left;margin-left:3px;}
+
+table#nodes input {float:right;}
+
+table#nodes img {border:0px; padding:2px 0 2px 5px;}
+table#nodes span {display:block; padding-top:2px;}
+
+table#nodes {
+	text-decoration:none; 
+	padding:0px;
+	color:#5C7A9A; 
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.pages {padding:11px; color:#5C7A9A; font-size:13px;}
+.pages b {background: #F0F0F0; padding:5px 7px 5px 7px;}
+.pages a {padding:5px 7px 5px 7px;}

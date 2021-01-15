@@ -1,0 +1,25 @@
+html {
+		overflow-y: scroll;
+}
+body {padding:0; margin:0; height:100%; width:100%;font-family:Tahoma,Verdana; font-size:12px; background-color:#EDF2FA;}
+form {padding:0; margin:0;}
+a {color: #5C7A9A; text-decoration:underline;}
+div#content {padding:10px; background-color:#D4DFF1; border:1px solid #BAC6D8; margin:10px;}
+
+
+#nodes {width: 100%; text-decoration:none; padding:0px; color:#5C7A9A; font-size: 11px; font-weight: normal;}
+#nodes .head {margin-bottom:10px;padding:10px 10px 10px 30px; background-color:#BDCCE6;}
+#nodes td {vertical-align:top; cursor:pointer; height:16px; text-align:left;}
+#nodes .spacer {cursor:default; font-size:3px;}
+
+div#attr1 {padding:10px 20px 10px 20px; background-color:#EDF2FA; border:1px solid #BAC6D8; margin:20px;color:#5C7A9A; font-size:11px;}
+
+/*div#attr input {height:10px;font-size:9px; width:85px;display:block; padding-bottom:3px; color:#5C7A9A;}*/
+div#attr input {height:10px;font-size:9px; width:85px; padding-bottom:3px; color:#5C7A9A;}
+
+div#attr table {border-collapse:collapse;}
+div#attr td {border-collapse:collapse;}
+div#attr img {padding-top:5px;}
+
+div#attr .td1 {padding-top:4px;}
+div#attr .right {text-align:right;}
