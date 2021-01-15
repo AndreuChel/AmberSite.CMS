@@ -89,23 +89,23 @@
 		<div id="content">
 			<table><tr><td>
 				<div class="p">
-					Путь до файла:<br/>
-					<input id="i_file" size="40" type="file" class="file" name="userfile" value="Обзор..."/>
+					РџСѓС‚СЊ РґРѕ С„Р°Р№Р»Р°:<br/>
+					<input id="i_file" size="40" type="file" class="file" name="userfile" value="РћР±Р·РѕСЂ..."/>
 				</div>
 				<div class="p" id="offdiv1">
-					<div>Альт. текст:<br/><input type="text" name="alt_text" class="ltext"/></div>
-					<div>Ширина<br/><input type="text" name="width" class="stext"/></div>
-					<div>Высота<br/><input type="text" name="height" class="stext"/></div>
+					<div>РђР»СЊС‚. С‚РµРєСЃС‚:<br/><input type="text" name="alt_text" class="ltext"/></div>
+					<div>РЁРёСЂРёРЅР°<br/><input type="text" name="width" class="stext"/></div>
+					<div>Р’С‹СЃРѕС‚Р°<br/><input type="text" name="height" class="stext"/></div>
 				</div>
 				<div class="p" id="offdiv2">
-					Просмотр&#160;<input type="checkbox" class="checkbox"/>
+					РџСЂРѕСЃРјРѕС‚СЂ&#160;<input type="checkbox" class="checkbox"/>
 				</div>
 			</td></tr></table>
 		</div>
 
 		<div class="p2" id="content2">
-			<input type="submit" class="button" onclick="javascript:ok_click();" value="Ок"/>
-            <input type="button" class="button" onclick="javascript:cancel_click();" value="Отмена"/>
+			<input type="submit" class="button" onclick="javascript:ok_click();" value="РћРє"/>
+            <input type="button" class="button" onclick="javascript:cancel_click();" value="РћС‚РјРµРЅР°"/>
             <input type="hidden" name="nodeid" value="<?echo $nodeid?>"/>
             <input id="i_userFile" type="hidden" name="user_image_file" value=""/>
             <input id="i_userFile2" type="hidden" name="file_name" value=""/>

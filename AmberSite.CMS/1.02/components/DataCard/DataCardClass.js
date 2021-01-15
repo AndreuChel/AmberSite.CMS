@@ -6,9 +6,9 @@ function ClaeanHTMLClass(docElem) {
 
     var goodTags0 = ["blockquote", "u", "a", "p", "br", "nobr", "strong", "b", "em", "i", "tt", "code", "pre", "ul", "ol", "li", "img", "table", "tbody", "thead", "tfoot", "caption", "tr", "td", "th", "col", "colgroup", "h1", "h2", "h3", "h4", "h5", "h6", "small", "big", "sub", "sup", "div", "span"];
     var emptyInlineTags0 = ["strong", "b", "em", "i", "tt", "code", "small", "big", "sub", "sup", "span", "p", "strong", "pre", "div", "a"];
-    // хорошие атрибуты (допустимы у всех тегов)
+    // С…РѕСЂРѕС€РёРµ Р°С‚СЂРёР±СѓС‚С‹ (РґРѕРїСѓСЃС‚РёРјС‹ Сѓ РІСЃРµС… С‚РµРіРѕРІ)
     goodAttributes0["all"] = ["href", "target", "title", "alt", "src", "id"];
-    // дополнительные допустимые атрибуты для отдельных тегов
+    // РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґРѕРїСѓСЃС‚РёРјС‹Рµ Р°С‚СЂРёР±СѓС‚С‹ РґР»СЏ РѕС‚РґРµР»СЊРЅС‹С… С‚РµРіРѕРІ
     goodAttributes0["img"] = ["width", "height", "align", "preview"];
     goodAttributes0["table"] = ["border", "width"];
     goodAttributes0["tr"] = ["noWrap", "align", "vAlign", "width"];
@@ -146,10 +146,10 @@ function html_special(str) {
     return tmp;
 }
 //***************************************************************
-//Запуск Объекта происходит в navMenuClass.js в методе "get_card"
+//Р—Р°РїСѓСЃРє РћР±СЉРµРєС‚Р° РїСЂРѕРёСЃС…РѕРґРёС‚ РІ navMenuClass.js РІ РјРµС‚РѕРґРµ "get_card"
 //***************************************************************
 
-//Класс карточки для редактирования
+//РљР»Р°СЃСЃ РєР°СЂС‚РѕС‡РєРё РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
 function DataCardClass(name, app_cms, startpath, DC) {
     this.FlagSaveCard = true;
     this.name = name;
@@ -157,48 +157,48 @@ function DataCardClass(name, app_cms, startpath, DC) {
     this.StartPath = startpath;
     this.Noderid = "";
     this.WriteMode = 0;
-    //идентификатор тега, куда будет осуществляться вывод карточки
+    //РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РµРіР°, РєСѓРґР° Р±СѓРґРµС‚ РѕСЃСѓС‰РµСЃС‚РІР»СЏС‚СЊСЃСЏ РІС‹РІРѕРґ РєР°СЂС‚РѕС‡РєРё
     this.DC = DC;
 
-    this.AppCMS.StatusBarPrint("Загрузка данных ...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… ...");
     this.AppCMS.AddComponentToCMS(name, this);
-    //загрузка шаблона формирования html карточки
+    //Р·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ html РєР°СЂС‚РѕС‡РєРё
     this.xslt_Template = this.AppCMS.Server.getXSLTtamplate("components/DataCard/xslt/card.xsl");
-    //загрузка хмл данных типов элементов карточки
+    //Р·Р°РіСЂСѓР·РєР° С…РјР» РґР°РЅРЅС‹С… С‚РёРїРѕРІ СЌР»РµРјРµРЅС‚РѕРІ РєР°СЂС‚РѕС‡РєРё
     //        this.dp_xml = this.AppCMS.Server.getXMLfile("settings/dp.xml");
-    //загрузка шаблона для формирования хмл из данных пришедших с сервера
+    //Р·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° РґР»СЏ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ С…РјР» РёР· РґР°РЅРЅС‹С… РїСЂРёС€РµРґС€РёС… СЃ СЃРµСЂРІРµСЂР°
     this.xslt_buff = this.AppCMS.Server.getXSLTtamplate("components/DataCard/xslt/shab.xsl");
     this.save_xslt = this.AppCMS.Server.getXSLTtamplate("components/DataCard/xslt/unshab.xsl");
 
     this.title_xslt = this.AppCMS.Server.getXSLTtamplate("components/DataCard/xslt/title_card.xsl");
 
-    //загрузка шаблона для присвоения id всем элеминтам рабочего хмл
+    //Р·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° РґР»СЏ РїСЂРёСЃРІРѕРµРЅРёСЏ id РІСЃРµРј СЌР»РµРјРёРЅС‚Р°Рј СЂР°Р±РѕС‡РµРіРѕ С…РјР»
     this.xslt_set_id = this.AppCMS.Server.getXSLTtamplate("components/DataCard/xslt/set_id.xsl");
     this.dstyle = this.AppCMS.SysSettings.getElementsByTagName("dstyle").item(0).cloneNode(true);
     if (!this.xslt_Template)
         alert(this.AppCMS.Server.ErrorInfo());
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
     this.WorkXML = "";
     this.WorkParams = "";
     this.ColectionsCount = 0;
 }
 //********************************************************************************************
-//функция обработки входящих сообщений системы
+//С„СѓРЅРєС†РёСЏ РѕР±СЂР°Р±РѕС‚РєРё РІС…РѕРґСЏС‰РёС… СЃРѕРѕР±С‰РµРЅРёР№ СЃРёСЃС‚РµРјС‹
 DataCardClass.prototype.CMSEvent = cms_event;
 
-//функция для отравки сообщения модуля системе
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РѕС‚СЂР°РІРєРё СЃРѕРѕР±С‰РµРЅРёСЏ РјРѕРґСѓР»СЏ СЃРёСЃС‚РµРјРµ
 DataCardClass.prototype.CallEvent = call_event;
 
-//функция, которая реагирует на сообщение системы - нарисовать карточку
+//С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ СЂРµР°РіРёСЂСѓРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ СЃРёСЃС‚РµРјС‹ - РЅР°СЂРёСЃРѕРІР°С‚СЊ РєР°СЂС‚РѕС‡РєСѓ
 DataCardClass.prototype.get_card = get_card;
 
-//функция, которая реагирует на сообщение системы - запросить с сервера превью изображения
+//С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ СЂРµР°РіРёСЂСѓРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ СЃРёСЃС‚РµРјС‹ - Р·Р°РїСЂРѕСЃРёС‚СЊ СЃ СЃРµСЂРІРµСЂР° РїСЂРµРІСЊСЋ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 DataCardClass.prototype.get_img_prev = get_img_prev;
 
-//функция, которая реагирует на сообщение системы - запросить с сервера заголовок ссылки
+//С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ СЂРµР°РіРёСЂСѓРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ СЃРёСЃС‚РµРјС‹ - Р·Р°РїСЂРѕСЃРёС‚СЊ СЃ СЃРµСЂРІРµСЂР° Р·Р°РіРѕР»РѕРІРѕРє СЃСЃС‹Р»РєРё
 DataCardClass.prototype.get_link_title = get_link_title;
 
-//функция, которая реагирует на сообщение системы - показать диалог выбора ссылки
+//С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ СЂРµР°РіРёСЂСѓРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ СЃРёСЃС‚РµРјС‹ - РїРѕРєР°Р·Р°С‚СЊ РґРёР°Р»РѕРі РІС‹Р±РѕСЂР° СЃСЃС‹Р»РєРё
 DataCardClass.prototype.get_linkdialog = get_linkdialog;
 
 DataCardClass.prototype.get_wysiwig = get_wysiwig;
@@ -209,7 +209,7 @@ DataCardClass.prototype.get_upload_image_dialog = get_upload_image_dialog;
 DataCardClass.prototype.get_upload_file_dialog = get_upload_file_dialog;
 DataCardClass.prototype.update_file_path = update_file_path;
 
-//функция выводит заголовок ссылки в карточку (callback фунция)
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґРёС‚ Р·Р°РіРѕР»РѕРІРѕРє СЃСЃС‹Р»РєРё РІ РєР°СЂС‚РѕС‡РєСѓ (callback С„СѓРЅС†РёСЏ)
 DataCardClass.prototype.save_linkdialog_res = save_linkdialog_res;
 
 DataCardClass.prototype.insert_collection_element = insert_collection_element;
@@ -231,7 +231,7 @@ function cms_event(name, params) {
 }
 //********************************************************************************************
 function call_event(params) {
-    //!!!!!продумать реализацию!!!!!!
+    //!!!!!РїСЂРѕРґСѓРјР°С‚СЊ СЂРµР°Р»РёР·Р°С†РёСЋ!!!!!!
     //	 this.AppCMS.ComponentEventToCMS(this.name,params);
 }
 //********************************************************************************************
@@ -267,41 +267,41 @@ function get_img_prev(params, name) {
     };
 
     str_act = this.AppCMS.ParamsToAction(params);
-    this.AppCMS.StatusBarPrint("Загрузка изображений...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РёР·РѕР±СЂР°Р¶РµРЅРёР№...");
     var res = this.AppCMS.Server.ExecuteAction(str_act);
     if (!res) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
         return false;
     };
     var p_path = res.getElementsByTagName("result").item(0).getAttribute("p_path");
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 
     document.getElementById(dc_id).onload = function () {
         return false;
     };
     document.getElementById(dc_id).src = this.AppCMS.site_path + '/' + p_path;
 
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 }
 //********************************************************************************************
 function get_link_title(params, name) {
 
     str_act = this.AppCMS.ParamsToAction(params);
-    this.AppCMS.StatusBarPrint("Загрузка заголовков ссылок...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° Р·Р°РіРѕР»РѕРІРєРѕРІ СЃСЃС‹Р»РѕРє...");
     var res = this.AppCMS.Server.ExecuteAction(str_act);
     if (!res) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
         return false;
     };
     var link_title = res.getElementsByTagName("result").item(0).getAttribute("link_title");
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 
     var params_array = this.AppCMS.ParamsToArray(params);
     var dc_id = params_array["id"];
 
     if (link_title)
         document.getElementById(dc_id).value = link_title;
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 }
 //********************************************************************************************
 function get_linkdialog(params, name) {
@@ -463,7 +463,7 @@ function delete_collection_element(params, name) {
     this.FlagSaveCard = false;
     if (this.WriteMode == "0")
         return;
-    if (!confirm("Нажмите < OK > для удаления элемента коллекции ..."))
+    if (!confirm("РќР°Р¶РјРёС‚Рµ < OK > РґР»СЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РєРѕР»Р»РµРєС†РёРё ..."))
         return;
     this.ColectionsCount++;
     var params_array = this.AppCMS.ParamsToArray(params);
@@ -577,7 +577,7 @@ function get_card(params, name) {
     if (name != "navMenu")
         return false;
     str_act = this.AppCMS.ParamsToAction(params);
-    this.AppCMS.StatusBarPrint("Загрузка данных...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С…...");
     var res = this.AppCMS.Server.ExecuteAction(str_act);
     if (!res) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
@@ -612,7 +612,7 @@ function get_card(params, name) {
             alert("test");
         };
         document.getElementById(this.DC).innerHTML = "<div id='content'>" + title_html + "<div class='clayer'>" + tmpHTML + "<\div>" + "</div>";
-        this.AppCMS.StatusBarPrint("Готово");
+        this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
     } else
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
 };
@@ -923,7 +923,7 @@ function SaveCardElement(params, name) {
     };
     //*******************
     if (_type == "html-text" && _card_type == "e") {
-        //сохраняет в XML функция SaveWysiwigData, которая вызывается в callback_wisiwyg_fun
+        //СЃРѕС…СЂР°РЅСЏРµС‚ РІ XML С„СѓРЅРєС†РёСЏ SaveWysiwigData, РєРѕС‚РѕСЂР°СЏ РІС‹Р·С‹РІР°РµС‚СЃСЏ РІ callback_wisiwyg_fun
     }
     //*******************
     if (_type == "default" && _card_type == "a") {
@@ -1064,7 +1064,7 @@ function SaveCardElement(params, name) {
 //********************************************************************************************
 function save_and_synchronize_card(params, name) {
     if (this.WriteMode == "0") {
-        alert("Недостаточно прав для сохранения");
+        alert("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ");
         return;
     };
     var Work_param = this.AppCMS.ParamsToArray(this.WorkParams);
@@ -1083,13 +1083,13 @@ function save_and_synchronize_card(params, name) {
     };
     action_string = this.AppCMS.Server.DomToSting(act_obj);
 
-    this.AppCMS.StatusBarPrint("Сохранение данных ...");
+    this.AppCMS.StatusBarPrint("РЎРѕС…СЂР°РЅРµРЅРёРµ РґР°РЅРЅС‹С… ...");
     var res = this.AppCMS.Server.ExecuteAction(action_string);
     if (!res) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
         return false;
     };
-    this.AppCMS.StatusBarPrint("Данные сохранены");
+    this.AppCMS.StatusBarPrint("Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹");
     this.FlagSaveCard = true;
 
 };
@@ -1115,7 +1115,7 @@ function goto_from_data_card(params, name) {
     var params_array = this.AppCMS.ParamsToArray(params);
     params_array["method"] = "get_children";
     if (!this.FlagSaveCard)
-        if (confirm("Данные были изменены. Сохранить изменения?"))
+        if (confirm("Р”Р°РЅРЅС‹Рµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹. РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ?"))
             this.AppCMS.ComponentEventToCMS(this.name, "method=save_and_synchronize_card");
     this.AppCMS.ComponentEventToCMS(this.name, this.AppCMS.ArrayToParams(params_array));
 };
@@ -1124,9 +1124,8 @@ function return_from_data_card(params, name) {
     var params_array = this.AppCMS.ParamsToArray(params);
     params_array["method"] = "return_to_menu";
     if (!this.FlagSaveCard)
-        if (confirm("Данные были изменены. Сохранить изменения?"))
+        if (confirm("Р”Р°РЅРЅС‹Рµ Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹. РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ?"))
             this.AppCMS.ComponentEventToCMS(this.name, "method=save_and_synchronize_card");
     this.AppCMS.ComponentEventToCMS(this.name, this.AppCMS.ArrayToParams(params_array));
 };
 //********************************************************************************************
-

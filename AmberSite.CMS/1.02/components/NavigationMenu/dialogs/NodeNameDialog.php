@@ -81,7 +81,7 @@
 			<table>
 				<tr><td>
 					<div class="p">
-						»Ïˇ:<br/>
+						–ò–º—è:<br/>
 						<input id="node_name" size="40" type="text" class="file"/>
 					</div>
 				</td></tr>
@@ -89,8 +89,8 @@
 		</div>
 
 		<div class="p2" id="content2">
-			<input type="submit" class="button" onclick="javascript:ok_click();" value="ŒÍ"/>
-			<input type="button" class="button" onclick="javascript:cancel_click();" value="ŒÚÏÂÌ‡"/>
+			<input type="submit" class="button" onclick="javascript:ok_click();" value="–û–∫"/>
+			<input type="button" class="button" onclick="javascript:cancel_click();" value="–û—Ç–º–µ–Ω–∞"/>
 		</div>
 	</form>
 </body>

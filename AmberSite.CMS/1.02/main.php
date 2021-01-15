@@ -32,7 +32,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-      <title>Система управления сайтом</title>
+      <title>РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј</title>
       <meta http-equiv="Content-Type" CONTENT="text/html; charset=<?get_language_title('ENCODING');?>"/>
       <script language="JavaScript" type="text/javascript" src="components/AppCMS/server.js"></script>
       <script language="JavaScript" type="text/javascript" src="components/AppCMS/AppCMS.js"></script>
@@ -48,7 +48,7 @@
        </script>
 </head>
 
-<!-- вариант без дебаггера -->
+<!-- РІР°СЂРёР°РЅС‚ Р±РµР· РґРµР±Р°РіРіРµСЂР° -->
 
 <frameset border="0" rows="67,*">
 	<frame noresize="noresize" name="frame1" src="components/HeaderMenu/main.php?sessionid=<?echo $sessionid ?>"></frame>
@@ -67,7 +67,7 @@
 </frameset>
 
 
-<!-- вариант с дебаггером (раскоментировать) -->
+<!-- РІР°СЂРёР°РЅС‚ СЃ РґРµР±Р°РіРіРµСЂРѕРј (СЂР°СЃРєРѕРјРµРЅС‚РёСЂРѕРІР°С‚СЊ) -->
 <!--
 <frameset border="0" rows="67,*">
 	<frame noresize="noresize" name="frame1" src="components/HeaderMenu/main.php?sessionid=<?echo $sessionid ?>"></frame>

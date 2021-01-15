@@ -14,13 +14,13 @@ function LinkDialogClass(name, parent, app_cms, startpath) {
 
     this.dialog_prop = 'dialogHeight: 550px; dialogWidth: 500px; dialogTop: 200px; dialogLeft: 300px; edge: Raised; center: Yes; help: No; resizable: No; status: No;'; //default features
 
-    this.AppCMS.StatusBarPrint("Загрузка данных ...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… ...");
     this.AppCMS.AddComponentToCMS(name, this);
-    //загрузка шаблона формирования html карточки
+    //Р·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ html РєР°СЂС‚РѕС‡РєРё
     this.xslt_Template = this.AppCMS.Server.getXSLTtamplate("components/LinkDialog/xslt/link_card.xsl");
     if (!this.xslt_Template)
         alert(this.AppCMS.Server.ErrorInfo());
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 }
 //********************************************************************************************
 LinkDialogClass.prototype.CMSEvent = cms_event;
@@ -59,7 +59,7 @@ function get_linkdialog_content(params) {
         this.dialogwin.Show();
         return;
     };
-    //рисование в this.dc;
+    //СЂРёСЃРѕРІР°РЅРёРµ РІ this.dc;
     this.ExecEvents();
 }
 //********************************************************************************************
@@ -91,7 +91,7 @@ function ExecEvents() {
     this.AppCMS.StartActions();
     var params_array = this.AppCMS.ParamsToArray(this.currentParams);
     if (!params_array["method"]) {
-        this.AppCMS.StatusBarPrint("Ошибка вывода модального окна");
+        this.AppCMS.StatusBarPrint("РћС€РёР±РєР° РІС‹РІРѕРґР° РјРѕРґР°Р»СЊРЅРѕРіРѕ РѕРєРЅР°");
     };
 
     if (params_array["event"]) {
@@ -124,7 +124,7 @@ function ExecEvents() {
 
     var act = this.AppCMS.ParamsToAction(this.AppCMS.html_special(params));
 
-    this.AppCMS.StatusBarPrint("Загрузка данных...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С…...");
 
     var res = this.AppCMS.Server.ExecuteAction(act);
     if (!res) {
@@ -136,7 +136,7 @@ function ExecEvents() {
     var tmpHTML = this.AppCMS.Server.XSLT_transform(res, this.xslt_Template);
     if (tmpHTML) {
         this.dc.getElementById("dialog_tag").innerHTML = tmpHTML;
-        this.AppCMS.StatusBarPrint("Готово");
+        this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
         this.win.ldEventsLoad()
     } else
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());

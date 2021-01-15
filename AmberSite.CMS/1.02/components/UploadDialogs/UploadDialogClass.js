@@ -17,7 +17,7 @@ function UploadDialogClass(name, parent, app_cms, startpath, type) {
     this.file_dialog_prop = 'dialogHeight: 200px; dialogWidth: 476px; dialogTop: 200px; dialogLeft: 300px; edge: Raised; center: Yes; help: No; resizable: No; status: No;';
 
     this.AppCMS.AddComponentToCMS(name, this);
-    //загрузка шаблона формирования html карточки
+    //Р·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° С„РѕСЂРјРёСЂРѕРІР°РЅРёВ¤ html РєР°СЂС‚РѕС‡РєРё
 }
 //********************************************************************************************
 UploadDialogClass.prototype.CMSEvent = cms_event;
@@ -52,7 +52,7 @@ function get_upload_content(params) {
     var si = this.AppCMS.session_id;
     var nd = this.parent.Noderid;
     if (!this.StatusShow) {
-        this.AppCMS.StatusBarPrint("Диалог для загрузки изображения");
+        this.AppCMS.StatusBarPrint("Ж’РёР°Р»РѕРі РґР»В¤ Р·Р°РіСЂСѓР·РєРё РёР·РѕР±СЂР°Р¶РµРЅРёВ¤");
         var url_str = this.AppCMS.Server.conman_path + "components/UploadDialogs/uploadDialog.php?nodeid=" + nd + "&sessionid=" + si + "&type=" + this.type;
         if (this.type == "file")
             var prop = this.file_dialog_prop;
@@ -72,7 +72,7 @@ function load_dialog_fun(owner, doc_param, win_param) {
 //********************************************************************************************
 function exit_dialog_fun(owner, params) {
     owner.StatusShow = false;
-    owner.AppCMS.StatusBarPrint("Готово");
+    owner.AppCMS.StatusBarPrint("в€љРѕС‚РѕРІРѕ");
     owner.AppCMS.StartActions();
 }
 

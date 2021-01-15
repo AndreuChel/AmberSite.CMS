@@ -47,7 +47,7 @@
 	<tr>
 		<td class="logo" ><b>AmberSite CMS</b><br/>v <script>document.write(top.AppCMS.ver);</script></td>
 		<td class="user"><? echo $str_user; ?></td>
-		<td class="logout"><a href="#" onclick="javascript:top.AppCMS.kill();"> Выйти </a></td>
+		<td class="logout"><a href="#" onclick="javascript:top.AppCMS.kill();"> Р’С‹Р№С‚Рё </a></td>
         <td class="path"><div id="path_place"></div></td>
 		<td>&#160;</td>
 	</tr>

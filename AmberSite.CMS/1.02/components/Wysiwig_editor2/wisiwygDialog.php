@@ -21,7 +21,7 @@
 <html>
 <head>
        <meta http-equiv="Content-Type" content="text/html; charset=<?get_language_title('ENCODING');?>">
-       <title>Редактор</title>
+       <title>Р РµРґР°РєС‚РѕСЂ</title>
 
         <style type="text/css" media="screen,print">
 	       body {padding:0; margin:0; width:100%; font-family:Tahoma,Verdana; font-size:11px; color:#303030; background-color:#F8F9FC; line-height:24px;}
@@ -77,8 +77,8 @@
              ?>
             </div>
             <div class="p2" id="content2">
-                 <input class="Exitbutton" type="button" id="Ok_button" value="ОК" onclick="javasript:ok_click();"/>
-                 <input class="Exitbutton" type="button" id="Cancel_button" value="Отмена" onclick="javascript: cancel_click();"/>
+                 <input class="Exitbutton" type="button" id="Ok_button" value="РћРљ" onclick="javasript:ok_click();"/>
+                 <input class="Exitbutton" type="button" id="Cancel_button" value="РћС‚РјРµРЅР°" onclick="javascript: cancel_click();"/>
             </div>
       </form>
       <iframe id="ifr" name="ifr" border="0" frameborder="0" style="display:none; width:100%; height:100%;"></iframe>

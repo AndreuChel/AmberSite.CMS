@@ -25,7 +25,7 @@ if ( $opt->ip_restriction === true ) {
 		}
 	}
    	if ( $access_allowed === false ) {
-   		invalid_sessionid("С данного узла регистрация не возможна");
+   		invalid_sessionid("РЎ РґР°РЅРЅРѕРіРѕ СѓР·Р»Р° СЂРµРіРёСЃС‚СЂР°С†РёСЏ РЅРµ РІРѕР·РјРѕР¶РЅР°");
    	}
 }
 
@@ -51,7 +51,7 @@ if ( $opt->newconman_path[$len-1] == "/" ) {
 $login_manager = new LOGIN_MANAGER ( $opt->dbconnect );
 $access_token = $login_manager->get_access_token ( $usr, $psw );
 if ( $access_token === false ) {
-	invalid_sessionid("Неверный логин или пароль");
+	invalid_sessionid("РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ");
 }
 
 $sessionid = get_sessionid ( $usr );
@@ -90,7 +90,7 @@ function get_sessionid ( $user_name ) {
 ?>
 		<html>
 			<head>
-				  <title>ОШИБКА БЕЗОПАСТНОСТИ</title>
+				  <title>РћРЁРР‘РљРђ Р‘Р•Р—РћРџРђРЎРўРќРћРЎРўР</title>
 				  <style>
 						body {
 						  font-size:15px;
@@ -100,7 +100,7 @@ function get_sessionid ( $user_name ) {
 			</head>
 			<body bgcolor="#FFFFFF" text="#000000">
 				  <p>
-					 <h3>Ошибка безопастности.</h3> <hr/>
+					 <h3>РћС€РёР±РєР° Р±РµР·РѕРїР°СЃС‚РЅРѕСЃС‚Рё.</h3> <hr/>
 					 <? echo $message ?>
 				  </p>
 			</body>

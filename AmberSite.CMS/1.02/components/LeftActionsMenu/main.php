@@ -32,7 +32,7 @@
 <body id="MainContext" onselectstart = "return false;">
 	<div id="content">
 		<div id="nodes">
-		 <div class="head">Доступные операции</div>
+		 <div class="head">Р”РѕСЃС‚СѓРїРЅС‹Рµ РѕРїРµСЂР°С†РёРё</div>
 			  <div id="main_menu"> </div>
 		 </div>
 	</div>

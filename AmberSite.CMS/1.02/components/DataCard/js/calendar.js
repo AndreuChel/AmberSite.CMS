@@ -116,29 +116,29 @@ function get_calendar(calendar_year, calendar_month, dst) {
 function get_month_name(month) {
     switch (month) {
     case 0:
-        return "Январь";
+        return "СЏРЅРІР°СЂСЊ";
     case 1:
-        return "Февраль";
+        return "вЂРµРІСЂР°Р»СЊ";
     case 2:
-        return "Март";
+        return "С›Р°СЂС‚";
     case 3:
-        return "Апрель";
+        return "СРїСЂРµР»СЊ";
     case 4:
-        return "Май";
+        return "С›Р°Р№";
     case 5:
-        return "Июнь";
+        return "В»СЋРЅСЊ";
     case 6:
-        return "Июль";
+        return "В»СЋР»СЊ";
     case 7:
-        return "Август";
+        return "СРІРіСѓСЃС‚";
     case 8:
-        return "Сентябрь";
+        return "вЂ”РµРЅС‚В¤Р±СЂСЊ";
     case 9:
-        return "Октябрь";
+        return "СњРєС‚В¤Р±СЂСЊ";
     case 10:
-        return "Ноябрь";
+        return "РЊРѕВ¤Р±СЂСЊ";
     case 11:
-        return "Декабрь";
+        return "Ж’РµРєР°Р±СЂСЊ";
 
     default:
         abort("Incorrect month!");
@@ -151,19 +151,19 @@ function get_month_name(month) {
 function get_day_name(day) {
     switch (day) {
     case 0:
-        return "Пн";
+        return "С•РЅ";
     case 1:
-        return "Вт";
+        return "В¬С‚";
     case 2:
-        return "Ср";
+        return "вЂ”СЂ";
     case 3:
-        return "Чт";
+        return "вЂћС‚";
     case 4:
-        return "Пт";
+        return "С•С‚";
     case 5:
-        return "Сб";
+        return "вЂ”Р±";
     case 6:
-        return "Вс";
+        return "В¬СЃ";
 
     default:
         abort("Incorrect day of the week!");
@@ -198,11 +198,11 @@ function calendar_switch(dst) {
     if (!b.v || b.v != 1) {
         document.getElementById('calendar' + dst).style.display = 'block';
         document.getElementById('calendar' + dst).innerHTML = get_calendar(document.getElementById('yyyy' + dst).value, document.getElementById('mm' + dst).value, dst);
-        b.value = 'спрятать';
+        b.value = 'СЃРїСЂВ¤С‚Р°С‚СЊ';
         b.v = 1;
     } else {
         b.v = 2;
         document.getElementById('calendar' + dst).style.display = 'none';
-        b.value = 'показать';
+        b.value = 'РїРѕРєР°Р·Р°С‚СЊ';
     }
 }

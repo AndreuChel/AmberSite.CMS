@@ -3,25 +3,25 @@ function LeftMenuClass(name, app_cms, DC, info_dc) {
     this.AppCMS = app_cms;
     this.DC = DC;
     this.InfoDC = info_dc;
-    //массив элементов меню для карточек - ключ i ("id","title","type")
+    //РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РґР»СЏ РєР°СЂС‚РѕС‡РµРє - РєР»СЋС‡ i ("id","title","type")
     this.CardElements = new Array();
-    //массив элементов меню нод (действие, кроме добавления) - ключ i ("id","title","type")
+    //РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РЅРѕРґ (РґРµР№СЃС‚РІРёРµ, РєСЂРѕРјРµ РґРѕР±Р°РІР»РµРЅРёСЏ) - РєР»СЋС‡ i ("id","title","type")
     this.SysNodeElements = new Array();
-    //массив элементов меню нод (добавление) - ключ node_type ("id","title","node_type")
+    //РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РЅРѕРґ (РґРѕР±Р°РІР»РµРЅРёРµ) - РєР»СЋС‡ node_type ("id","title","node_type")
     this.AddNodeElements = new Array();
-    //массив всех элементов меню  - ключ id ("type_arr", "key")
+    //РјР°СЃСЃРёРІ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ  - РєР»СЋС‡ id ("type_arr", "key")
     this.AllMenuElements = new Array();
 
     this.Separator = "";
 
     this.WorkHTML = "";
 
-    //массив выбранных нод (где поставленны галочки)
+    //РјР°СЃСЃРёРІ РІС‹Р±СЂР°РЅРЅС‹С… РЅРѕРґ (РіРґРµ РїРѕСЃС‚Р°РІР»РµРЅРЅС‹ РіР°Р»РѕС‡РєРё)
     this.CheckedNodes = false;
-    //выделенная нода (ссылка)
+    //РІС‹РґРµР»РµРЅРЅР°СЏ РЅРѕРґР° (СЃСЃС‹Р»РєР°)
     this.SelectedNode = false;
 
-    this.AppCMS.StatusBarPrint("Загрузка данных ...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… ...");
     this.IconsXml = this.AppCMS.Server.getXMLfile("components/LeftActionsMenu/icons.xml");
     this.xslt_Template = this.AppCMS.Server.getXSLTtamplate("components/LeftActionsMenu/xslt/leftMenu.xsl");
     this.xslt_set_id = this.AppCMS.Server.getXSLTtamplate("components/LeftActionsMenu/xslt/set_id.xsl");
@@ -33,7 +33,7 @@ function LeftMenuClass(name, app_cms, DC, info_dc) {
     this.main_menu = this.AppCMS.Server.XmlToDom(this.AppCMS.Server.XSLT_transform(this.main_menu, this.xslt_set_id));
     this.XmlToArrayAttribs();
     this.AppCMS.AddComponentToCMS(name, this);
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
     this.nav_menu_xml = false;
 }
 //********************************************************************************************
@@ -88,39 +88,39 @@ function PrepareData() {
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Редактировать' type='node_edit' typeof='node'></menu_item>";
+    var insert_tag = "<menu_item group='' title='Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ' type='node_edit' typeof='node'></menu_item>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Запретить показ' type='node_block' typeof='node'/>";
+    var insert_tag = "<menu_item group='' title='Р—Р°РїСЂРµС‚РёС‚СЊ РїРѕРєР°Р·' type='node_block' typeof='node'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Разрешить показ' type='node_unblock' typeof='node'/>";
+    var insert_tag = "<menu_item group='' title='Р Р°Р·СЂРµС€РёС‚СЊ РїРѕРєР°Р·' type='node_unblock' typeof='node'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Переместить вверх' type='node_moveup' typeof='node'/>";
+    var insert_tag = "<menu_item group='' title='РџРµСЂРµРјРµСЃС‚РёС‚СЊ РІРІРµСЂС…' type='node_moveup' typeof='node'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Переместить вниз' type='node_movedown' typeof='node'/>";
+    var insert_tag = "<menu_item group='' title='РџРµСЂРµРјРµСЃС‚РёС‚СЊ РІРЅРёР·' type='node_movedown' typeof='node'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Удалить' type='node_delete' typeof='node'/>";
+    var insert_tag = "<menu_item group='' title='РЈРґР°Р»РёС‚СЊ' type='node_delete' typeof='node'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Сохранить' type='save_card' typeof='card'/>";
+    var insert_tag = "<menu_item group='' title='РЎРѕС…СЂР°РЅРёС‚СЊ' type='save_card' typeof='card'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Выйти и сохранить' type='quit_save_card' typeof='card'/>";
+    var insert_tag = "<menu_item group='' title='Р’С‹Р№С‚Рё Рё СЃРѕС…СЂР°РЅРёС‚СЊ' type='quit_save_card' typeof='card'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
-    var insert_tag = "<menu_item group='' title='Выйти без сохранения' type='quit_card' typeof='card'/>";
+    var insert_tag = "<menu_item group='' title='Р’С‹Р№С‚Рё Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ' type='quit_card' typeof='card'/>";
     var i_t = this.AppCMS.Server.XmlToDom(insert_tag).documentElement;
     this.main_menu.documentElement.appendChild(i_t);
 
@@ -137,7 +137,7 @@ function XmlToArrayAttribs() {
         if (_type)
             _type = _type.toUpperCase();
         var _id = Items[i].getAttribute("id");
-        
+
         var _html = this.AppCMS.Server.DomToSting(this.AppCMS.XPathRes(tmpHTML, "//*[@id='" + _id + "']"));
         var _title = Items[i].getAttribute("title");
         if (_typeof == "separator")
@@ -457,7 +457,5 @@ function menu_check_node(params, name) {
     };
 };
 //********************************************************************************************
-function update_menu(act) {
-    
-};
+function update_menu(act) {};
 //********************************************************************************************

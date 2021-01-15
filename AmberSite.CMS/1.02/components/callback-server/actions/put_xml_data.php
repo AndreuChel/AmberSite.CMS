@@ -12,7 +12,7 @@
     $trans = $site->get_replace_files ( $site_node );
 
     $util = new SITE_NODE_DATA_PROCESSING();
-    // ¯ à ¬¥âà $xml_data !¨§¬¥­ï¥âáï! ¢­ãâà¨
+    // Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ $xml_data !Ð¸Ð·Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ! Ð²Ð½ÑƒÑ‚Ñ€Ð¸
     $files = $util -> on_write_paths_processing(&$xml_data, $trans);
     if ($files === false) abort();
 

@@ -11,13 +11,13 @@
 		if (isset($node_perms["WebUsers"])) {
 			$webUsersPerms = $node_perms["WebUsers"];
 			if (stripos($webUsersPerms,"R") !== false && $_op_type =="block") {
-				//блокирование ноды, если она видна
+				//Р±Р»РѕРєРёСЂРѕРІР°РЅРёРµ РЅРѕРґС‹, РµСЃР»Рё РѕРЅР° РІРёРґРЅР°
 				$_path = $site->make_site_node_path($block_node);
 				$_mask = preg_replace("/.*(R\s*,?).*/","",$webUsersPerms);
 				$site->set_site_node_ace ( $_path, "WebUsers", $_mask );
 			};
 			if (stripos($webUsersPerms,"R") === false && $_op_type =="unblock") {
-				//разблокирование ноды, если она не видна
+				//СЂР°Р·Р±Р»РѕРєРёСЂРѕРІР°РЅРёРµ РЅРѕРґС‹, РµСЃР»Рё РѕРЅР° РЅРµ РІРёРґРЅР°
 				$_path = $site->make_site_node_path($block_node);
 				if (trim($webUsersPerms) == "") $_mask ="R";
 				else $_mask = "R, ".$webUsersPerms;

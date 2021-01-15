@@ -11,13 +11,13 @@ function navMenuClass(name, app_cms, startpath, top_path, DC) {
     this.StatusShowAddNodeDialog = false;
     this.GetChildParams = false;
     this.LastLoadCardParams = false;
-    this.AppCMS.StatusBarPrint("Загрузка данных ...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… ...");
     this.AppCMS.AddComponentToCMS(name, this, 1);
     this.xslt_Template = this.AppCMS.Server.getXSLTtamplate("components/NavigationMenu/xslt/nav_menu.xsl");
-    //        this.xslt_card = this.AppCMS.Server.getXSLTtamplate("components/NavigationMenu/card.xsl");
+
     if (!this.xslt_Template)
         alert(this.AppCMS.Server.ErrorInfo());
-    this.AppCMS.StatusBarPrint("Готово");
+    this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
 
 }
 //********************************************************************************************
@@ -123,7 +123,7 @@ function get_children(params) {
     };
     str_act += "/>";
     this.GetChildParams = params;
-    this.AppCMS.StatusBarPrint("Загрузка данных...");
+    this.AppCMS.StatusBarPrint("Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С…...");
     var res = this.AppCMS.Server.ExecuteAction(str_act);
     if (!res) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
@@ -150,7 +150,7 @@ function get_children(params) {
             if (_id)
                 selectNode(_id);
         };
-        this.AppCMS.StatusBarPrint("Готово");
+        this.AppCMS.StatusBarPrint("Р“РѕС‚РѕРІРѕ");
         navMenuEventsLoad();
     } else
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
@@ -183,7 +183,7 @@ function left_menu_action_node(params) {
     if (_action == "add" && !this.StatusShowAddNodeDialog) {
         var data_node = this.AppCMS.XPathRes(this.CurrentXML, "//data");
         if (!this.check_permissions(data_node, "W")) {
-            alert("Недостаточно прав для выполнения операции!");
+            alert("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё!");
             return;
         };
         this.tmpDialogParams = params;
@@ -202,7 +202,7 @@ function left_menu_action_node(params) {
         var action_string = "<action method='" + _type_act + "' path='" + _path + "' posted_id='" + _id + "'/>";
         var res = this.AppCMS.Server.ExecuteAction(action_string);
         alert(this.AppCMS.Server.request.responseText);
-        //alert ("Процесс рассылки новостей запущен!");
+        //alert ("РџСЂРѕС†РµСЃСЃ СЂР°СЃСЃС‹Р»РєРё РЅРѕРІРѕСЃС‚РµР№ Р·Р°РїСѓС‰РµРЅ!");
     };
     //**********************
     if (_action == "NODE_EDIT" && !this.StatusShowAddNodeDialog) {
@@ -249,7 +249,7 @@ function left_menu_action_node(params) {
         if (new_ids == "")
             return;
         this.AppCMS.StopActions();
-        if (!confirm("Нажмите < OK > для удаления выбранных узлов ...")) {
+        if (!confirm("РќР°Р¶РјРёС‚Рµ < OK > РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РІС‹Р±СЂР°РЅРЅС‹С… СѓР·Р»РѕРІ ...")) {
             this.AppCMS.StartActions();
             return;
         };
@@ -287,7 +287,7 @@ function left_menu_action_node(params) {
 
         this.AppCMS.StopActions();
         if (_type_action == "block")
-            if (!confirm("Нажмите < OK > для запрета показа выбранных разделов на сайте...")) {
+            if (!confirm("РќР°Р¶РјРёС‚Рµ < OK > РґР»СЏ Р·Р°РїСЂРµС‚Р° РїРѕРєР°Р·Р° РІС‹Р±СЂР°РЅРЅС‹С… СЂР°Р·РґРµР»РѕРІ РЅР° СЃР°Р№С‚Рµ...")) {
                 this.AppCMS.StartActions();
                 return;
             };
@@ -403,7 +403,7 @@ function rename_event_fun(owner, params) {
 //********************************************************************************************
 //method=save_node_attribs#xml_id=2000#t_title=3#t_description=3#t_content=3
 function save_node_attribs(params) {
-    this.AppCMS.StatusBarPrint("Сохранение атрибутов...");
+    this.AppCMS.StatusBarPrint("РЎРѕС…СЂР°РЅРµРЅРёРµ Р°С‚СЂРёР±СѓС‚РѕРІ...");
     var par_arr = this.AppCMS.ParamsToArray(params);
     var _id = par_arr["xml_id"];
     var act_sub = "";
@@ -441,5 +441,5 @@ function save_node_attribs(params) {
         this.AppCMS.StatusBarPrint(this.AppCMS.Server.ErrorInfo());
         return false;
     };
-    this.AppCMS.StatusBarPrint("Атрибуты сохранены");
+    this.AppCMS.StatusBarPrint("РђС‚СЂРёР±СѓС‚С‹ СЃРѕС…СЂР°РЅРµРЅС‹");
 };

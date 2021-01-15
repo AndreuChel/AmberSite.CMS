@@ -1,11 +1,11 @@
 <?
     include "php_classes/security_manager.php";
     
-    // Уровень дерева с которого надо начинать отображение ("root/sites/butruba" например значение 3)
+    // РЈСЂРѕРІРµРЅСЊ РґРµСЂРµРІР° СЃ РєРѕС‚РѕСЂРѕРіРѕ РЅР°РґРѕ РЅР°С‡РёРЅР°С‚СЊ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ ("root/sites/butruba" РЅР°РїСЂРёРјРµСЂ Р·РЅР°С‡РµРЅРёРµ 3)
     $TreeLevel = 1;
-    //Кол-во отображаемых страниц
+    //РљРѕР»-РІРѕ РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹С… СЃС‚СЂР°РЅРёС†
     $GroupePagesCount = 10;
-    // Выборка детей в массив $children
+    // Р’С‹Р±РѕСЂРєР° РґРµС‚РµР№ РІ РјР°СЃСЃРёРІ $children
     if ( $_path == "/" )
     {
        $parent_node = new SITE_NODE ();
@@ -27,7 +27,7 @@
 
     $num_children = sizeof ( $children );
 
-    // Входные параметры
+    // Р’С…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹
     $_start_pos = $action->get_node ( "/action/@start_position" );
     if ( $_start_pos == null || $_start_pos == "" ) $_start_pos = 0;
     $_limit = $action->get_node ( "/action/@limit" );
@@ -84,13 +84,13 @@
 
     $buff .= "<data ".$attribs.">";
     if ($parent_node) {
-		//Формирование Загаловка страницы
+		//Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ Р—Р°РіР°Р»РѕРІРєР° СЃС‚СЂР°РЅРёС†С‹
 
 		$title_attr = $parent_node->get ( "s:title-attr" );
 		$title = htmlspecialchars($parent_node->get ( $title_attr ));
 		$buff .= "<title_page title=\"$title\"/>";
 	
-		//Формирование ссылок быстрого перехода вверх
+		//Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ СЃСЃС‹Р»РѕРє Р±С‹СЃС‚СЂРѕРіРѕ РїРµСЂРµС…РѕРґР° РІРІРµСЂС…
 		$tmp_s = split('/',$_path);
 		$noda_level = sizeof($tmp_s);
 		if ($noda_level > $TreeLevel) {
@@ -116,7 +116,7 @@
 			$buff .= "</quick_links>";
         };
     };
-    //Формирование страниц
+    //Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ СЃС‚СЂР°РЅРёС†
       
     if ($_limit < $num_children) {
 		$tmp_calc = $_limit * $GroupePagesCount;
@@ -161,15 +161,15 @@
 
         $buff .= "</pages>";
 	};
-    //Формирование непосредственно элементов меню навигации
+    //Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РЅР°РІРёРіР°С†РёРё
     $buff .= "<elements>";
     if ($noda_level > $TreeLevel)
-		//Формарование ссылки назад
+		//Р¤РѕСЂРјР°СЂРѕРІР°РЅРёРµ СЃСЃС‹Р»РєРё РЅР°Р·Р°Рґ
 		if ($parent_node->parent_id) {
 			$tmp_parent = $site -> get_site_node_by_id($parent_node->parent_id);
 			$tmp_path = $site -> make_site_node_path($tmp_parent);
 			$tmp_pos = 0;
-			//----Вычисление страницы, где находится родитель
+			//----Р’С‹С‡РёСЃР»РµРЅРёРµ СЃС‚СЂР°РЅРёС†С‹, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ СЂРѕРґРёС‚РµР»СЊ
 			$tree_sort = $tmp_parent->get ( "s:tree-sort" );
 			if ($tree_sort == "asc" || $tree_sort == "desc"){
 				$tmp_params ["select"] = "*";
@@ -184,7 +184,7 @@
 			$link = "link=\"method=get_children#path=$tmp_path#start_position=$s_pos#limit=$_limit#select=$p_id$_choose_path\"";
 			$buff .= "<back title=\"..\" id=\"id_link_back_id\" $link/>";
 		};
-	//формирование ссылок на дочерние элементы меню навигации
+	//С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ СЃСЃС‹Р»РѕРє РЅР° РґРѕС‡РµСЂРЅРёРµ СЌР»РµРјРµРЅС‚С‹ РјРµРЅСЋ РЅР°РІРёРіР°С†РёРё
 	for ( $i = $_start_pos; $i < $num_children; $i++ ) {
 		if ( $i >= ( $_start_pos + $_limit ) ) break;
 

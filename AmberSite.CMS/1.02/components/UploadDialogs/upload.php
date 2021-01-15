@@ -14,17 +14,17 @@
     if  (strrpos($base_path,'/') !=strlen($base_path)-1) $base_path = $base_path.'/';
 
     $site = new SITE_CONTROL ( $opt->dbconnect, &$access_token );
-    if ( empty ( $nodeid ) ) { $comment =  "Ошибка загрузки: не задан приемник копирования"; return false; }
+    if ( empty ( $nodeid ) ) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ Р·Р°РґР°РЅ РїСЂРёРµРјРЅРёРє РєРѕРїРёСЂРѕРІР°РЅРёВ¤"; return false; }
     $site_node = $site->get_site_node_by_id ( $nodeid );
-    if ( $site_node === false ) { $comment =  "Ошибка загрузки: неизвестный раздел сайта"; return false; }
+    if ( $site_node === false ) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµРёР·РІРµСЃС‚РЅС‹Р№ СЂР°Р·РґРµР» СЃР°Р№С‚Р°"; return false; }
 
-    if ( $site->check_permissions ( $site_node, "W" ) === false ) { $comment = "Ошибка загрузки: нет прав на данную операцию"; return false; };
+    if ( $site->check_permissions ( $site_node, "W" ) === false ) { $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµС‚ РїСЂР°РІ РЅР° РґР°РЅРЅСѓСЋ РѕРїРµСЂР°С†РёСЋ"; return false; };
 
     $t = array ( 1 => ".gif", 2 => ".jpg", 3 => ".png", 4 => ".swf", 5 => ".psd", 6 => ".bmp" );
     $info = getimagesize ( $userfile );
     $im_attribs ["filesize"] = filesize($userfile);
     $ext = $t[$info[2]];
-    if (!$ext) { $comment =  "Ошибка загрузки: указан не графический файл"; return false; }
+    if (!$ext) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: СѓРєР°Р·Р°РЅ РЅРµ РіСЂР°С„РёС‡РµСЃРєРёР№ С„Р°Р№Р»"; return false; }
     $img_width = $info[0];
     $im_attribs ["width"] = $img_width;
     $img_height = $info[1];
@@ -41,21 +41,21 @@
     $f_path = $im_attribs ["filepath"];
     $user_image_file = urldecode($user_image_file);
     $user_image_file = vrecode( "windows-1251..UTF-8", $user_image_file );
-    if ( $user_image_file == "" ) { $comment =  "Ошибка загрузки: Файл не определен"; return false; }
+    if ( $user_image_file == "" ) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: вЂР°Р№Р» РЅРµ РѕРїСЂРµРґРµР»РµРЅ"; return false; }
     $im_attribs ["filename"] = $user_image_file;
     umask ( 0117 );
 
     pg_exec ( $site->link, "BEGIN" );
-    if (!copy($userfile, $file_path)) { $comment = "Ошибка загрузки: не указан файл для загрузки"; return false; }
+    if (!copy($userfile, $file_path)) { $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ СѓРєР°Р·Р°РЅ С„Р°Р№Р» РґР»В¤ Р·Р°РіСЂСѓР·РєРё"; return false; }
     else
        if (!chmod($file_path, 0755)) {
-                 $comment = "Ошибка загрузки: не возможно проставить права для загруженного файла";
+                 $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ РІРѕР·РјРѕР¶РЅРѕ РїСЂРѕСЃС‚Р°РІРёС‚СЊ РїСЂР°РІР° РґР»В¤ Р·Р°РіСЂСѓР¶РµРЅРЅРѕРіРѕ С„Р°Р№Р»Р°";
                  return FALSE;
        };
     pg_exec ( $site->link, "INSERT INTO \"FILES\"(id,path,client_path) VALUES('$file_id','$f_path','$user_image_file')" );
     pg_exec ( $site->link, "INSERT INTO \"XML_NODE_FILES_M\"(node_id,file_id,replace) VALUES('$site_node->id','$file_id','T')" );
     pg_exec ( $site->link, "COMMIT" );
-    $comment = "Файл загружен в папку - ".$file_path;
+    $comment = "вЂР°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ РІ РїР°РїРєСѓ - ".$file_path;
     return true;
   };
 
@@ -64,11 +64,11 @@
      if  (strrpos($base_path,'/') !=strlen($base_path)-1) $base_path = $base_path.'/';
 
      $site = new SITE_CONTROL ( $opt->dbconnect, &$access_token );
-     if ( empty ( $nodeid ) ) { $comment =  "Ошибка загрузки: не задан приемник копирования"; return false; }
+     if ( empty ( $nodeid ) ) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ Р·Р°РґР°РЅ РїСЂРёРµРјРЅРёРє РєРѕРїРёСЂРѕРІР°РЅРёВ¤"; return false; }
 
      $site_node = $site->get_site_node_by_id ( $nodeid );
-     if ( $site_node === false ) { $comment =  "Ошибка загрузки: неизвестный раздел сайта - ".$nodeid; return false; }
-     if ( $site->check_permissions ( $site_node, "W" ) === false ) {$comment = "Ошибка загрузки: нет прав на данную операцию";  return false;};
+     if ( $site_node === false ) { $comment =  "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµРёР·РІРµСЃС‚РЅС‹Р№ СЂР°Р·РґРµР» СЃР°Р№С‚Р° - ".$nodeid; return false; }
+     if ( $site->check_permissions ( $site_node, "W" ) === false ) {$comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµС‚ РїСЂР°РІ РЅР° РґР°РЅРЅСѓСЋ РѕРїРµСЂР°С†РёСЋ";  return false;};
 
      $file_name = urldecode($file_name);
      $pos = strrpos ( $file_name, "." );
@@ -82,19 +82,19 @@
      $f_path = $base_path."data/".$rel_path.'/'.$file_id.$ext;
      umask ( 0117 );
      $file_name = vrecode( "windows-1251..UTF-8", $file_name );
-     if ( $file_name == "" ) { $comment = "Ошибка загрузки: отсутствует имя файла"; return false; }
+     if ( $file_name == "" ) { $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РёРјВ¤ С„Р°Р№Р»Р°"; return false; }
 
      pg_exec ( $site->link, 'BEGIN' );
-     if (!copy($userfile, $f_path)) { $comment = "Ошибка загрузки: не указан файл для загрузки"; return false; }
+     if (!copy($userfile, $f_path)) { $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ СѓРєР°Р·Р°РЅ С„Р°Р№Р» РґР»В¤ Р·Р°РіСЂСѓР·РєРё"; return false; }
      else
        if (!chmod($f_path, 0755)) {
-                 $comment = "Ошибка загрузки: не возможно проставить права для загруженного файла";
+                 $comment = "СњС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё: РЅРµ РІРѕР·РјРѕР¶РЅРѕ РїСЂРѕСЃС‚Р°РІРёС‚СЊ РїСЂР°РІР° РґР»В¤ Р·Р°РіСЂСѓР¶РµРЅРЅРѕРіРѕ С„Р°Р№Р»Р°";
                  return FALSE;
        };
      pg_exec ( $site->link, "INSERT INTO \"FILES\"(id,path,client_path) VALUES('$file_id','$file_path','$file_name')" );
      pg_exec ( $site->link, "INSERT INTO \"XML_NODE_FILES_M\"(node_id,file_id,replace) VALUES('$site_node->id','$file_id','T')" );
      pg_exec ( $site->link, 'COMMIT' );
-     $comment = "Файл загружен в папку - ".$file_path;
+     $comment = "вЂР°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ РІ РїР°РїРєСѓ - ".$file_path;
      $file_attribs ["filesize"] = ceil(filesize($userfile)/1024);
      $file_attribs ["filepath"] = 'data/'.$rel_path.'/'.$file_id.$ext;
      $file_attribs ["filename"] = vrecode( "UTF-8..windows-1251", $file_name );
@@ -195,7 +195,7 @@
 
 <body onLoad="javascript: uploadFile();">
     <div id="resUpload"></div>
-    <input type="button" value="ОК" onclick="javascript:top.close_win();"/>
+    <input type="button" value="СњВ " onclick="javascript:top.close_win();"/>
 </body>
 
 </html>

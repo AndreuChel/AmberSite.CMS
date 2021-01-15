@@ -51,13 +51,13 @@
 										</tr>
 										<tr><td height="8" colspan="3"><img src="i/pix.gif" width="291" height="8"/></td></tr>
 										<tr>
-											<td width="82" height="19" align="right"><span class="t">Имя</span></td>
+											<td width="82" height="19" align="right"><span class="t">В»РјВ¤</span></td>
 											<td><input type="text" name="usr" style="width:196;height:19;border:solid 1px #505863;"/></td>
 											<td width="13" height="19"><img src="i/x.gif" width="13" height="19"/></td>
 										</tr>
 										<tr><td height="8" colspan="3"><img src="i/pix.gif" width="291" height="8"/></td></tr>
 										<tr>
-											<td width="82" height="19" align="right"><span class="t">Пароль</span></td>
+											<td width="82" height="19" align="right"><span class="t">С•Р°СЂРѕР»СЊ</span></td>
 											<td><input type="password" name="psw" style="width:196;height:19;border:solid 1px #505863;"/></td>
 											<td width="13" height="19"><img src="i/x.gif" width="13" height="19"/></td>
 										</tr>
